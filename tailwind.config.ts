@@ -15,12 +15,12 @@ const config: Config = {
       },
       colors: {
         primary: {
-          light: '#A3B18A',
+          light: '#ABB491',
           main: '#588157',
           dark: '#3A5A40',
         },
         secondary: {
-          main: '#DAD7CD',
+          main: '#CCD9CC',
         },
         white: '#f7fafc',
       },
