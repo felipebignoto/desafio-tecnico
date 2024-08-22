@@ -27,5 +27,11 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /text-(red|blue|green|yellow|purple|pink)-600/,
+      variants: ['hover'],
+    },
+  ],
 }
 export default config

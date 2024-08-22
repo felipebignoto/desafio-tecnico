@@ -1,11 +1,24 @@
+import Button from '@/components/button'
+import Title from '@/components/title'
+import { ListCollapse, Search, Trash, UserRoundPlus } from 'lucide-react'
+
 export default function Home() {
   return (
     <div>
-      <h1>Desafio técnico</h1>
-      <div className="flex flex-col border-2 border-primary-dark bg-primary-light">
-        <button>Cadastrar novo usuário</button>
-        <button>Listar todos usuários</button>
-        <button>Procurar usuário pelo id</button>
+      <Title text="Gerenciamento de usuários" />
+      <div className="flex flex-col w-fit m-auto gap-4">
+        <Button text="Cadastrar novo usuário" url="/" color="green">
+          <UserRoundPlus />
+        </Button>
+        <Button text="Visualizar todos usuários" url="/usuarios" color="blue">
+          <ListCollapse />
+        </Button>
+        <Button text="Buscar usuário pelo id" url="/" color="blue">
+          <Search></Search>
+        </Button>
+        <Button text="Deletar usuário pelo id" url="/" color="red">
+          <Trash></Trash>
+        </Button>
       </div>
     </div>
   )
