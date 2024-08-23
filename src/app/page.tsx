@@ -7,7 +7,11 @@ export default function Home() {
     <div>
       <Title text="Gerenciamento de usuários" />
       <div className="flex flex-col w-fit m-auto gap-4">
-        <Button text="Cadastrar novo usuário" url="/" color="green">
+        <Button
+          text="Cadastrar novo usuário"
+          url="/usuarios/cadastro"
+          color="green"
+        >
           <UserRoundPlus />
         </Button>
         <Button text="Visualizar todos usuários" url="/usuarios" color="blue">

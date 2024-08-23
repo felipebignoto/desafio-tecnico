@@ -29,7 +29,7 @@ export default function Table(props: TableProps) {
           usuarios.map((usuario, i) => (
             <tr
               key={usuario.id}
-              className={`border border-primary-dark ${i % 2 == 0 ? 'bg-gray-200' : ''}`}
+              className={`border border-primary-dark ${i % 2 === 0 ? 'bg-gray-200' : ''}`}
             >
               <td className="text-center border-r border-primary-dark p-1">
                 {usuario.nome}
