@@ -34,6 +34,7 @@ export default function Busca() {
     } else {
       setError('Usuário não encontrado')
       setUsuario([])
+      console.log(error)
       setId('')
       toast({
         description: 'Usuário não encontrado',
@@ -72,7 +73,7 @@ export default function Busca() {
           </div>
         </form>
 
-        {usuario && <Table usuarios={usuario} />}
+        {usuario.length > 0 && <Table usuarios={usuario} />}
       </div>
     </div>
   )

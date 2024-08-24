@@ -40,7 +40,7 @@ export default function Cadastro() {
   }
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className=" border border-primary-main mt-4">
+      <div className=" border-2 p-2 border-primaryColor-main mt-4">
         <Title text="Cadastre um novo usuário"></Title>
         <form
           onSubmit={handleSubmit}

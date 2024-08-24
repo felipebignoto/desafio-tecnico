@@ -25,6 +25,13 @@ export default function Home() {
           <Search></Search>
         </Button>
         <Button
+          text="Atualizar usuário pelo id"
+          url="/usuarios/atualizacao"
+          color="yellow"
+        >
+          <Search></Search>
+        </Button>
+        <Button
           text="Deletar usuário pelo id"
           url="/usuarios/remocao"
           color="red"

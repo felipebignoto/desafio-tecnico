@@ -15,11 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-secondary-main h-screen">
+      <body className="bg-secondaryColor-main h-screen">
         <div className="flex items-center justify-center p-4">
           <Link
             href="/"
-            className="text-4xl underline text-primary-dark hover:text-primary-main"
+            className="text-4xl underline text-primaryColor-dark hover:text-primaryColor-main"
           >
             Desafio técnico
           </Link>

@@ -10,8 +10,11 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const { nome, email, idade } = await request.json()
-  const novoUsuario = new Usuario(nome, email, idade)
+  const { nome, email, idade, id } = await request.json()
+  if (id) {
+    await repo.excluir(id)
+  }
+  const novoUsuario = new Usuario(nome, email, idade, id)
   await repo.salvar(novoUsuario)
   return NextResponse.json(novoUsuario)
 }

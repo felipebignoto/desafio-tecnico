@@ -5,7 +5,7 @@ interface ButtonProps {
   url: string
   classname?: string
   children?: Any
-  color?: 'blue' | 'green' | 'red'
+  color?: 'blue' | 'green' | 'red' | 'yellow'
 }
 
 export default function Button(props: ButtonProps) {
