@@ -24,7 +24,7 @@ export default class UsuarioRepoJSON implements UsuarioRepo {
     const usuarios = await this.readData()
     if (await this.verificarPorId(usuario.usuarioId)) {
       // Usuario existe - tenho que atualizar os dados
-      const index = usuarios.findIndex((u) => u.usuarioId === usuario.usuarioId)
+      const index = usuarios.findIndex((u) => u.id === usuario.usuarioId)
       usuarios[index] = usuario
     } else {
       // novo usuario
@@ -36,6 +36,7 @@ export default class UsuarioRepoJSON implements UsuarioRepo {
   }
 
   async excluir(id: UUID): Promise<void> {
+    console.log(id)
     let usuarios = await this.readData()
     usuarios = usuarios.filter((u) => u.id !== id)
     await this.writeData(usuarios)
@@ -54,7 +55,7 @@ export default class UsuarioRepoJSON implements UsuarioRepo {
 
   async verificarPorId(id: UUID): Promise<boolean> {
     const usuarios = await this.readData()
-    if (usuarios.find((u) => u.usuarioId === id)) {
+    if (usuarios.find((u) => u.id === id)) {
       return true
     }
     return false
