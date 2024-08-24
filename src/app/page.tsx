@@ -17,10 +17,18 @@ export default function Home() {
         <Button text="Visualizar todos usuários" url="/usuarios" color="blue">
           <ListCollapse />
         </Button>
-        <Button text="Buscar usuário pelo id" url="/" color="blue">
+        <Button
+          text="Buscar usuário pelo id"
+          url="/usuarios/busca"
+          color="blue"
+        >
           <Search></Search>
         </Button>
-        <Button text="Deletar usuário pelo id" url="/" color="red">
+        <Button
+          text="Deletar usuário pelo id"
+          url="/usuarios/remocao"
+          color="red"
+        >
           <Trash></Trash>
         </Button>
       </div>

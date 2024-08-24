@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Title from '@/components/title'
 import Usuario from '@/core/usuario'
 import Table from '@/components/table'
+import { toast } from '@/components/ui/use-toast'
 
 export default function Usuarios() {
   const [usuarios, setUsuarios] = useState<Usuario[]>([])
@@ -13,11 +14,16 @@ export default function Usuarios() {
     fetch('/api/usuarios')
       .then((response) => response.json())
       .then((data) => {
-        console.log('Dados recebidos:', data)
         setLoading(false)
         setUsuarios(data)
       })
-      .catch((error) => console.error('Erro ao buscar usuários:', error))
+      .catch(() => {
+        setLoading(false)
+        toast({
+          description: 'Erro ao buscar usuários.',
+          variant: 'destructive',
+        })
+      })
   }, [])
 
   return (

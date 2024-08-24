@@ -37,7 +37,7 @@ export default class UsuarioRepoJSON implements UsuarioRepo {
 
   async excluir(id: UUID): Promise<void> {
     let usuarios = await this.readData()
-    usuarios = usuarios.filter((u) => u.usuarioId !== id)
+    usuarios = usuarios.filter((u) => u.id !== id)
     await this.writeData(usuarios)
   }
 
@@ -48,7 +48,8 @@ export default class UsuarioRepoJSON implements UsuarioRepo {
 
   async buscarPorId(id: UUID): Promise<Usuario | null> {
     const usuarios = await this.readData()
-    return usuarios.find((u) => u.usuarioId === id) || null
+    const usuarioEncontrado = usuarios.find((u) => u.id === id)
+    return usuarioEncontrado || null
   }
 
   async verificarPorId(id: UUID): Promise<boolean> {

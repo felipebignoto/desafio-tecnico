@@ -4,12 +4,14 @@ import Title from '@/components/title'
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Button from '@/components/button'
+import { useToast } from '@/components/ui/use-toast'
 
-export default function Cdastro() {
+export default function Cadastro() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [idade, setIdade] = useState('')
   const router = useRouter()
+  const { toast } = useToast()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -24,9 +26,16 @@ export default function Cdastro() {
     })
 
     if (response.ok) {
+      toast({
+        description: 'Usuário criado com sucesso!',
+        className: 'bg-green-600 text-white',
+      })
       router.push('/usuarios')
     } else {
-      console.error('Falha ao criar usuario')
+      toast({
+        description: 'Falha ao criar usuário',
+        variant: 'destructive',
+      })
     }
   }
   return (
@@ -50,7 +59,7 @@ export default function Cdastro() {
           <div className="flex flex-col gap-1 p-2">
             <label>Email:</label>
             <input
-              type="text"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

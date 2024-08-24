@@ -15,3 +15,18 @@ export async function POST(request: Request) {
   await repo.salvar(novoUsuario)
   return NextResponse.json(novoUsuario)
 }
+
+export async function DELETE(request: Request) {
+  const { id } = await request.json()
+  const usuarioExistente = await repo.buscarPorId(id)
+
+  if (!usuarioExistente) {
+    return NextResponse.json(
+      { error: 'Usuário não encontrado' },
+      { status: 404 },
+    )
+  }
+
+  await repo.excluir(id)
+  return NextResponse.json({ message: 'Usuário excluído com sucesso' })
+}
