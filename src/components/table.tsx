@@ -2,6 +2,7 @@
 
 import Usuario from '@/core/usuario'
 import { Pencil, Trash } from 'lucide-react'
+import Button from './button'
 
 interface TableProps {
   usuarios: Usuario[]
@@ -9,7 +10,6 @@ interface TableProps {
 
 export default function Table(props: TableProps) {
   const usuarios = props.usuarios
-
   return (
     <table className="border-2 border-primaryColor-dark">
       <thead className="border border-primaryColor-dark">
@@ -49,8 +49,12 @@ export default function Table(props: TableProps) {
                 {usuario.id}
               </td>
               <td className="text-center p-1 flex">
-                <Pencil />
-                <Trash />
+                <Button url="/usuarios/atualizacao" color="blue">
+                  <Pencil></Pencil>
+                </Button>
+                <Button url="/usuarios/remocao" color="red">
+                  <Trash></Trash>
+                </Button>
               </td>
             </tr>
           ))

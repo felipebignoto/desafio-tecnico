@@ -12,7 +12,7 @@ export default function Atualização() {
   const [email, setEmail] = useState('')
   const [idade, setIdade] = useState('')
   const [id, setId] = useState('')
-  const [usuario, setUsuario] = useState<Usuario[]>()
+  const [usuario, setUsuario] = useState<Usuario>()
   const router = useRouter()
   const { toast } = useToast()
 
@@ -64,7 +64,6 @@ export default function Atualização() {
         className: 'bg-green-600 text-white',
       })
     } else {
-      setUsuario([])
       setId('')
       toast({
         description: 'Usuário não encontrado',
@@ -104,7 +103,7 @@ export default function Atualização() {
         </form>
       </div>
 
-      {usuario && usuario.length > 0 && (
+      {usuario && (
         <form
           onSubmit={handleUpdate}
           className="flex flex-col gap-2 items-center p-2"

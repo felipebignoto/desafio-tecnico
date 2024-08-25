@@ -22,9 +22,9 @@ export default class UsuarioRepoJSON implements UsuarioRepo {
 
   async salvar(usuario: Usuario): Promise<Usuario> {
     const usuarios = await this.readData()
-    if (await this.verificarPorId(usuario.usuarioId)) {
+    if (await this.verificarPorId(usuario.id)) {
       // Usuario existe - tenho que atualizar os dados
-      const index = usuarios.findIndex((u) => u.id === usuario.usuarioId)
+      const index = usuarios.findIndex((u) => u.id === usuario.id)
       usuarios[index] = usuario
     } else {
       // novo usuario
@@ -36,7 +36,6 @@ export default class UsuarioRepoJSON implements UsuarioRepo {
   }
 
   async excluir(id: UUID): Promise<void> {
-    console.log(id)
     let usuarios = await this.readData()
     usuarios = usuarios.filter((u) => u.id !== id)
     await this.writeData(usuarios)
@@ -56,6 +55,14 @@ export default class UsuarioRepoJSON implements UsuarioRepo {
   async verificarPorId(id: UUID): Promise<boolean> {
     const usuarios = await this.readData()
     if (usuarios.find((u) => u.id === id)) {
+      return true
+    }
+    return false
+  }
+
+  async verificarPorEmail(email: string): Promise<boolean> {
+    const usuarios = await this.readData()
+    if (usuarios.find((u) => u.email === email)) {
       return true
     }
     return false

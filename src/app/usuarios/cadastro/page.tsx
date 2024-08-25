@@ -32,10 +32,20 @@ export default function Cadastro() {
       })
       router.push('/usuarios')
     } else {
-      toast({
-        description: 'Falha ao criar usuário',
-        variant: 'destructive',
-      })
+      if (response.status === 400) {
+        toast({
+          description: 'Email já está cadastrado.',
+          variant: 'destructive',
+        })
+      } else {
+        toast({
+          description: 'Falha ao criar usuário',
+          variant: 'destructive',
+        })
+      }
+      setEmail('')
+      setNome('')
+      setIdade('')
     }
   }
   return (

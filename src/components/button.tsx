@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 interface ButtonProps {
-  text: string
+  text?: string
   url: string
   classname?: string
   children?: Any
@@ -16,7 +16,7 @@ export default function Button(props: ButtonProps) {
     >
       <button className="flex gap-2 p-2 hover:underline bg-gray-100 w-full rounded-md">
         {props.children}
-        <span>{props.text}</span>
+        {props.text ? <span>{props.text}</span> : null}
       </button>
     </Link>
   )

@@ -10,7 +10,6 @@ import Table from '@/components/table'
 export default function Busca() {
   const [id, setId] = useState('')
   const [usuario, setUsuario] = useState<Usuario[]>([])
-  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -26,15 +25,12 @@ export default function Busca() {
       const data = await response.json()
       setUsuario([data])
       setId('')
-      setError(null)
       toast({
         description: 'Usuário encontrado com sucesso!',
         className: 'bg-green-600 text-white',
       })
     } else {
-      setError('Usuário não encontrado')
       setUsuario([])
-      console.log(error)
       setId('')
       toast({
         description: 'Usuário não encontrado',
