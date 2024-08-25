@@ -1,14 +1,22 @@
 'use client'
 
 import Title from '@/components/title'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Button from '@/components/button'
 import { toast } from '@/components/ui/use-toast'
 
 export default function Remocao() {
   const [id, setId] = useState('')
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const usuarioId = searchParams.get('id')
+
+  useEffect(() => {
+    if (usuarioId) {
+      setId(usuarioId)
+    }
+  }, [usuarioId])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

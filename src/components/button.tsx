@@ -6,6 +6,7 @@ interface ButtonProps {
   classname?: string
   children?: Any
   color?: 'blue' | 'green' | 'red' | 'yellow'
+  bg?: boolean
 }
 
 export default function Button(props: ButtonProps) {
@@ -14,7 +15,9 @@ export default function Button(props: ButtonProps) {
       href={props.url}
       className={`hover:text-${props.color}-600 transition`}
     >
-      <button className="flex gap-2 p-2 hover:underline bg-gray-100 w-full rounded-md">
+      <button
+        className={`flex gap-2 p-2 hover:underline ${props.bg ? '' : 'bg-gray-100'} w-full rounded-md`}
+      >
         {props.children}
         {props.text ? <span>{props.text}</span> : null}
       </button>

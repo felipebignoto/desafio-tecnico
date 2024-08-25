@@ -4,8 +4,8 @@ import Button from '@/components/button'
 import Title from '@/components/title'
 import { useToast } from '@/components/ui/use-toast'
 import Usuario from '@/core/usuario'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
 export default function Atualização() {
   const [nome, setNome] = useState('')
@@ -15,6 +15,28 @@ export default function Atualização() {
   const [usuario, setUsuario] = useState<Usuario>()
   const router = useRouter()
   const { toast } = useToast()
+  const searchParams = useSearchParams()
+  const usuarioId = searchParams.get('id')
+
+  useEffect(() => {
+    if (usuarioId) {
+      fetch(`/api/usuarios/${usuarioId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setUsuario(data)
+          setNome(data.nome)
+          setId(data.id)
+          setEmail(data.email)
+          setIdade(data.idade)
+        })
+        .catch(() => {
+          toast({
+            description: 'Falha ao buscar usuário',
+            variant: 'destructive',
+          })
+        })
+    }
+  }, [usuarioId, toast])
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault()

@@ -49,10 +49,18 @@ export default function Table(props: TableProps) {
                 {usuario.id}
               </td>
               <td className="text-center p-1 flex">
-                <Button url="/usuarios/atualizacao" color="blue">
+                <Button
+                  url={`/usuarios/atualizacao?id=${usuario.id}`}
+                  bg
+                  color="blue"
+                >
                   <Pencil></Pencil>
                 </Button>
-                <Button url="/usuarios/remocao" color="red">
+                <Button
+                  bg
+                  url={`/usuarios/remocao?id=${usuario.id}`}
+                  color="red"
+                >
                   <Trash></Trash>
                 </Button>
               </td>
