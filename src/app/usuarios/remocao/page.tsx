@@ -59,7 +59,8 @@ export default function Remocao() {
               value={id}
               onChange={(e) => setId(e.target.value)}
               required
-              className="bg-gray-200 outline-none focus:bg-gray-100"
+              size={36}
+              className="w-full max-w-xs md:max-w-none md:w-max bg-gray-200 flex outline-none focus:bg-gray-100"
             />
           </div>
 

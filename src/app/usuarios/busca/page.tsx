@@ -47,14 +47,15 @@ export default function Busca() {
           onSubmit={handleSubmit}
           className="flex flex-col gap-2 items-center p-2"
         >
-          <div className="flex gap-2 p-2">
+          <div className="flex gap-2 p-2 items-center">
             <label>ID:</label>
             <input
               type="text"
               value={id}
               onChange={(e) => setId(e.target.value)}
               required
-              className="bg-gray-200 outline-none focus:bg-gray-100"
+              size={36}
+              className="w-full max-w-xs md:max-w-none md:w-max bg-gray-200 flex outline-none focus:bg-gray-100"
             />
           </div>
 

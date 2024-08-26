@@ -19,7 +19,7 @@ export default function RootLayout({
         <div className="flex items-center justify-center p-4">
           <Link
             href="/"
-            className="text-4xl underline text-primaryColor-dark hover:text-primaryColor-main"
+            className="text-3xl md:text-4xl underline text-primaryColor-dark hover:text-primaryColor-main"
           >
             Desafio técnico
           </Link>
