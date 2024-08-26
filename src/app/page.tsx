@@ -1,8 +1,20 @@
 import Button from '@/components/button'
+import LoginButton from '@/components/loginButton'
+import LogoutButton from '@/components/logoutButton'
 import Title from '@/components/title'
-import { ListCollapse, Search, Trash, UserRoundPlus } from 'lucide-react'
+import authOptions from '@/utils/authOptions'
+import {
+  ListCollapse,
+  Pencil,
+  Search,
+  Trash,
+  UserRoundPlus,
+} from 'lucide-react'
+import { Session, getServerSession } from 'next-auth'
 
-export default function Home() {
+export default async function Home() {
+  const session = (await getServerSession(authOptions)) as Session | null
+
   return (
     <div>
       <Title text="Gerenciamento de usuários" />
@@ -22,22 +34,28 @@ export default function Home() {
           url="/usuarios/busca"
           color="blue"
         >
-          <Search></Search>
+          <Search />
         </Button>
         <Button
           text="Atualizar usuário pelo id"
           url="/usuarios/atualizacao"
           color="yellow"
         >
-          <Search></Search>
+          <Pencil />
         </Button>
         <Button
           text="Deletar usuário pelo id"
           url="/usuarios/remocao"
           color="red"
         >
-          <Trash></Trash>
+          <Trash />
         </Button>
+
+        {session?.user ? (
+          <LogoutButton text={session.user.name} />
+        ) : (
+          <LoginButton />
+        )}
       </div>
     </div>
   )
