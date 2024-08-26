@@ -11,7 +11,7 @@ interface TableProps {
 export default function Table(props: TableProps) {
   const usuarios = props.usuarios
   return (
-    <table className="border-2 border-primaryColor-dark text-sm md:text-md m-1">
+    <table className="border-2 border-primaryColor-dark text-sm md:text-base m-1">
       <thead className="border border-primaryColor-dark">
         <tr>
           <th className="border-r border-primaryColor-dark text-center md:p-1">

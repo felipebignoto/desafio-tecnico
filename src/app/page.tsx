@@ -17,7 +17,10 @@ export default async function Home() {
 
   return (
     <div>
-      <Title text="Gerenciamento de usuários" />
+      <Title
+        text="Gerenciamento de usuários"
+        description="Faça login para gerenciar os usuários do sistema."
+      />
       <div className="flex flex-col w-fit m-auto gap-4">
         <Button
           text="Cadastrar novo usuário"
