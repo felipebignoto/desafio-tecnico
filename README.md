@@ -33,7 +33,7 @@ Abaixo estão as rotas disponíveis na API para gerenciamento de usuários:
 
 | Método | URL               | Privada | Funcionalidade                                     |
 | :----- | ----------------- | :-----: | -------------------------------------------------- |
-| GET    | /api/usuarios     |    -    | Retorna a lista com todos os usuários cadastrados. |
-| POST   | /api/usuarios     |    -    | Cria um novo usuário.                              |
-| DELETE | /api/usuarios     |    -    | Remove um usuário com base no ID especificado.     |
-| GET    | /api/usuarios/:id |    -    | Retorna o usuário que contém o ID especificado.    |
+| GET    | /api/usuarios     |   Sim   | Retorna a lista com todos os usuários cadastrados. |
+| POST   | /api/usuarios     |   Sim   | Cria um novo usuário.                              |
+| DELETE | /api/usuarios     |   Sim   | Remove um usuário com base no ID especificado.     |
+| GET    | /api/usuarios/:id |   Sim   | Retorna o usuário que contém o ID especificado.    |

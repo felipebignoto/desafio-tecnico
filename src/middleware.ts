@@ -2,18 +2,23 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getToken } from 'next-auth/jwt'
 
+// Defina a URL de login
+const LOGIN_URL = '/api/auth/signin'
+
 export async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
 
-  // Protege rotas que começam com "/usuarios"
-  if (req.nextUrl.pathname.startsWith('/usuarios')) {
+  if (
+    req.nextUrl.pathname.startsWith('/usuarios') ||
+    req.nextUrl.pathname.startsWith('/api/usuarios')
+  ) {
     if (!token) {
-      return NextResponse.redirect(new URL('/autenticacao', req.url))
+      return NextResponse.redirect(new URL(LOGIN_URL, req.url))
     }
   }
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/usuarios/:path*'],
+  matcher: ['/usuarios/:path*', '/api/usuarios/:path*'],
 }
