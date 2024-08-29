@@ -9,7 +9,7 @@ Este projeto tem o objetivo de facilitar o gerenciamento de usuários, oferecend
 - **TypeScript**
 - **Tailwind CSS**
 - **Node.js**
-- **JSON**
+- **MONGO DB**
 
 ## Como Executar o Projeto
 
