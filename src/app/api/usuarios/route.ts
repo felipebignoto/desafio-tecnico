@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
-import UsuarioRepoJSON from '@/core/usuarioRepoJSON'
+import UsuarioRepoMongo from '@/core/usuarioRepoMongo'
 import Usuario from '@/core/usuario'
 
-const repo = new UsuarioRepoJSON()
+const repo = new UsuarioRepoMongo()
 
 export async function GET() {
   const users = await repo.listar()
